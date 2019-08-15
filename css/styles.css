@@ -57,7 +57,7 @@ body {
 
 .song-title {
 	font-weight: bold;
-	text-decoration: underline;
+	text-transform: uppercase;
 	margin-bottom: 10px;
 	margin-top: 20px;
 }
@@ -159,7 +159,7 @@ input.search-bar {
 	color: #2e2f31;
 }
 
-.song-title, .song-lbl {
+.song-title, .song-lbl, .song-title.odd, .song-title.even {
 	color: #FDB53F; //#E86A6B;
 }
 
