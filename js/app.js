@@ -228,6 +228,7 @@ $(document).ready( function() {
 				$("#mainCntr").fadeIn();
 				$("#zoomCntr").show();
                 setColumnLayout();
+                window.scrollTo(0,0);
 			}
 		});
 	} 
