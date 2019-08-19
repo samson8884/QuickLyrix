@@ -152,6 +152,7 @@ input.search-bar {
 	margin: 0 5px 5px 5px;  
 	min-height: 35px;
 	line-height: 35px;
+    padding: 0 5px;
 }
 
 .song-lbl:active, .song-lbl:hover {

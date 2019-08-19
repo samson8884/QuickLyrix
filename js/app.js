@@ -1,4 +1,5 @@
-$(document).ready( function() { 
+$(document).ready( function() {
+    clearSessionStorage();
 	$.ajaxSetup({
 		error: function(event, jqXHR, ajaxSettings, thrownError) {
 			if(event.statusText == "error") {
