@@ -3,17 +3,17 @@ $(document).ready( function() {
 	$.ajaxSetup({
 		error: function(event, jqXHR, ajaxSettings, thrownError) {
 			if(event.statusText == "error") {
-			showMsg("Could not retrieve data. Please try running the app from a web server."); } else {
-				showMsg("Could not retrieve data. <br>" + event.statusText);
-				
-		  }
-			
+			 showMsg("Could not retrieve data. Please try running the app from a web server."); 
+            } else {
+			 showMsg("Could not retrieve data. <br>" + event.statusText);				
+		    }			
 		}
 	});
 	
 	$.fn.hasScrollBar = function() {
 		return this.height() > ($(window).height() - $(".search-cntr").outerHeight());
 	}
+    
 	$.fn.disableSelection = function() {
 		return this
 				 .attr('unselectable', 'on')
