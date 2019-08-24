@@ -1,0 +1,15 @@
+{
+  "short_name": "Quick Lyrix",
+  "name": "Quick Lyrix",
+  "icons": [
+    {
+      "src": "/img/QuikLyrix.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#3E4649",
+  "display": "standalone",
+  "theme_color": "#3E4649"
+}

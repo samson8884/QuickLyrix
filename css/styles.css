@@ -100,7 +100,7 @@ ul.dropdown-menu li a {
 }
 
 input.search-bar {            
-	background-image: url("img/search-icon.png");
+/*	background-image: url("../img/search-icon.png");*/
 	background-position: right center;
 	background-repeat: no-repeat;
 	background-size: 35px 35px;
