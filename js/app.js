@@ -10,8 +10,9 @@ $(document).ready( function() {
 		}
 	});
 	
-	$.fn.hasScrollBar = function() {
-		return this.height() > ($(window).height() - $(".search-cntr").outerHeight());
+	$.fn.hasScrollBar = function() {        
+		//return this.height() > ($(window).height() - $(".search-cntr").outerHeight() );
+        return this.height() > $(window).height();
 	}
     
 	$.fn.disableSelection = function() {
@@ -254,6 +255,10 @@ $(document).ready( function() {
 
 			if($lyricsPage.hasScrollBar()) {                        
 				$lyricsPage.addClass("three-col");
+                
+                if($lyricsPage.hasScrollBar()) {
+                    $lyricsPage.removeClass("two-col three-col");
+                }
 			}
 		}
 	}
