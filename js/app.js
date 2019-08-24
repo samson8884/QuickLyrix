@@ -69,7 +69,7 @@ $(document).ready( function() {
 		e.preventDefault();
 		$('input.search-bar').val("");
 		var clickedEl = $(e.currentTarget);
-		getLyrics(clickedEl.text().split("-")[0].trim());
+		getLyrics(clickedEl.text().split("-")[0].split(".")[1].trim());
 	});
 	
 	$("#plusBtn").on("click", function(e) {
@@ -112,12 +112,12 @@ $(document).ready( function() {
 	}
 	
 	function zoomIn() {
-		$("#mainCntr").css("font-size", parseInt($("#mainCntr").css("font-size")) + 2);
+		$("#lyricsPage").css("font-size", parseInt($("#lyricsPage").css("font-size")) + 2);
 		setColumnLayout();
 	}
 	
 	function zoomOut() {
-		$("#mainCntr").css("font-size", parseInt($("#mainCntr").css("font-size")) - 2);
+		$("#lyricsPage").css("font-size", parseInt($("#lyricsPage").css("font-size")) - 2);
 		setColumnLayout();
 	}
     
@@ -170,7 +170,19 @@ $(document).ready( function() {
 	function createTitles() {
 	   $("#songTitlesCntr").empty();
 		var titles = JSON.parse(sessionStorage.songTitles);
-		titles.sort();  
+        
+		//move * to the end of the title so sorting will be proper
+        /*for( var c = 0; c < titles.length; c++) {
+            if(titles[c].indexOf("*") != -1) {
+                titles[c] = titles[c].replace("* ", "") + "*";
+            }
+        }*/
+        
+        //sort titles
+		titles.sort();
+        //console.log(titles)
+        
+        //display titles 
 		for( var c = 0; c < titles.length; c++) {
 			var className = titles[c].indexOf("*") == -1 ? "not-popular" : "";
 			var div = $("<div>").addClass("song-lbl " + className).html(c+1 +". "+titles[c].replace("*", ""));
@@ -185,7 +197,7 @@ $(document).ready( function() {
 			createTitles();
 			createAutocomplete();
 		}
-		$("#mainCntr").hide();
+		$("#lyricsPage").hide();
 		$("#indexPage").fadeIn();  
 		$("#zoomCntr").hide();
 		if($(".tab").hasClass("active") == false) {
@@ -200,7 +212,7 @@ $(document).ready( function() {
 			dataType : "text",
 			success: function(data) {
 				$("#indexPage").hide();
-				$("#mainCntr").empty().hide();                                         
+				$("#lyricsPage").empty().hide();                                         
 				var lines = data.split("\n");
 				var titleFound = false;
 				var div;
@@ -224,9 +236,9 @@ $(document).ready( function() {
                         }
 					}
 
-					$("#mainCntr").append(div);                            
+					$("#lyricsPage").append(div);                            
 				}				
-				$("#mainCntr").fadeIn();
+				$("#lyricsPage").fadeIn();
 				$("#zoomCntr").show();
                 setColumnLayout();
                 window.scrollTo(0,0);
@@ -235,25 +247,25 @@ $(document).ready( function() {
 	} 
 	
 	function setColumnLayout() {
-		var $mainCntr = $("#mainCntr");
-		$mainCntr.removeClass("two-col three-col");
-		if($mainCntr.hasScrollBar()) {                    
-			$mainCntr.addClass("two-col");
+		var $lyricsPage = $("#lyricsPage");
+		$lyricsPage.removeClass("two-col three-col");
+		if($lyricsPage.hasScrollBar()) {                    
+			$lyricsPage.addClass("two-col");
 
-			if($mainCntr.hasScrollBar()) {                        
-				$mainCntr.addClass("three-col");
+			if($lyricsPage.hasScrollBar()) {                        
+				$lyricsPage.addClass("three-col");
 			}
 		}
 	}
 	
 	function setTitlesColumnLayout() {
-		var $mainCntr = $("#songTitlesCntr");
-		$mainCntr.removeClass("two-col three-col");
-		if($mainCntr.hasScrollBar()) {                    
-			$mainCntr.addClass("two-col");
+		var $lyricsPage = $("#songTitlesCntr");
+		$lyricsPage.removeClass("two-col three-col");
+		if($lyricsPage.hasScrollBar()) {                    
+			$lyricsPage.addClass("two-col");
 
-			if($mainCntr.hasScrollBar()) {                        
-				$mainCntr.addClass("three-col");
+			if($lyricsPage.hasScrollBar()) {                        
+				$lyricsPage.addClass("three-col");
 			}
 		}
 	}
