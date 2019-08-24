@@ -173,7 +173,7 @@ $(document).ready( function() {
 		titles.sort();  
 		for( var c = 0; c < titles.length; c++) {
 			var className = titles[c].indexOf("*") == -1 ? "not-popular" : "";
-			var div = $("<div>").addClass("song-lbl " + className).html(titles[c]);
+			var div = $("<div>").addClass("song-lbl " + className).html(c+1 +". "+titles[c].replace("*", ""));
 			$("#songTitlesCntr").append(div);                                        
 		}
 		setTitlesColumnLayout();
