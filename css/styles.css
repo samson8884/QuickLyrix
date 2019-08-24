@@ -71,7 +71,7 @@ ul.dropdown-menu {
 	position: absolute;
 	z-index: 1;            
 	left: 60!important; 
-	top: 72px!important; 
+	top: 47px!important; 
 	//border: 1px solid #23A96E;
 	box-sizing: border-box;
 	box-shadow: 0px 5px 10px #2E2F31;
@@ -97,6 +97,10 @@ ul.dropdown-menu li a {
 	height: 40px;
 	line-height: 40px;
 	text-decoration: none;            
+}
+
+.typeahead.dropdown-menu strong {
+    color: #3E4647 ;
 }
 
 input.search-bar {            
